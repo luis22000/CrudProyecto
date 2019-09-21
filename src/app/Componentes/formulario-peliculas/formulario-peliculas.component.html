@@ -1,0 +1,19 @@
+<div class="texto">
+    <div class="card-body">
+        <form (submit)= "agregarpelicula(NuevaPelicula,NuevaDuracion,NuevaDescripcion)">
+            <div class="form-group">
+                <input type ="text" class ="form-control" placeholder="Titulo Pelicula" #NuevaPelicula>
+            </div>
+            <div class="form-group">
+                    <input type ="number" class ="form-control" placeholder="Duracion de Pelicula En minutos" #NuevaDuracion>
+            </div>
+            <div class="form-group">
+                <textarea cols="30" rows="10" placeholder="Descripcion Pelicula" 
+                 class ="form-control" #NuevaDescripcion ></textarea>
+            </div>
+            <button class="btn btn-primary btn-block">
+                Enviar
+            </button>
+        </form>
+    </div>
+</div>
