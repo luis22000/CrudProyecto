@@ -1,3 +1,17 @@
-<app-peliculas *ngFor ="let pelicula of Pelicula" [Pelicula] = "pelicula">
+<table class="table table-hover table-dark">
+        <thead>
+                <tr>
+                  
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Duracion</th>
+                  <th scope="col">Descripcion</th>
+                </tr>
+        </thead>
+        <tr  *ngFor ="let pelicula of Pelicula"> 
+            <td>{{pelicula.NombrePelicula}}</td>
+            <td>{{pelicula.DuracionPelicula}} </td>
+            <td>{{pelicula.Descripcion}}</td>
+        </tr> 
+</table>
+        
 
-</app-peliculas>
