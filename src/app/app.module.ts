@@ -9,7 +9,8 @@ import { PeliculasComponent } from './Componentes/peliculas/peliculas.component'
 import { ListaPeliculasComponent } from './Componentes/lista-peliculas/lista-peliculas.component';
 import { PeliculaService } from './Servicios/pelicula.service'
 const appRoutes: Routes = [
-  { path: 'navegador', component: NavegadorComponent },
+  { path: 'Leer', component: ListaPeliculasComponent },
+  { path: 'Ingresar', component: FormularioPeliculasComponent },
 ];
 
 @NgModule({
@@ -21,7 +22,11 @@ const appRoutes: Routes = [
     ListaPeliculasComponent
   ],
   imports: [
+    
     BrowserModule,
+    RouterModule.forRoot(
+      appRoutes
+    ),
     AppRoutingModule
   ],
   providers: [PeliculaService],

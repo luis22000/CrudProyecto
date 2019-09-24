@@ -1,17 +1,30 @@
-<table class="table table-hover table-dark">
-        <thead>
-                <tr>
-                  
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Duracion</th>
-                  <th scope="col">Descripcion</th>
-                </tr>
-        </thead>
-        <tr  *ngFor ="let pelicula of Pelicula"> 
-            <td>{{pelicula.NombrePelicula}}</td>
-            <td>{{pelicula.DuracionPelicula}} </td>
-            <td>{{pelicula.Descripcion}}</td>
-        </tr> 
-</table>
+
+       
+<div class="container p-4">
+        <div class="row">
+                <div class="col-md-10 text-center">
+                    <table class="table table-bordered">
+                            <thead>
+                                    <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Duracion</th>
+                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Director</th>
+                                    <th scope="col">Genero</th>
+                                    </tr>
+                            </thead>
+                            <tr  *ngFor ="let pelicula of Pelicula"> 
+                                <td>{{pelicula.NombrePelicula}}</td>
+                                <td>{{pelicula.DuracionPelicula}} </td>
+                                <td>{{pelicula.Descripcion}}</td>
+                                <td>{{pelicula.Director}}</td>
+                                <td>{{pelicula.Genero}}</td>
+                            </tr> 
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
         
 
