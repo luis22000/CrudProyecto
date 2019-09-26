@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PeliculaService} from '../../Servicios/pelicula.service'
 
+
+
 @Component({
   selector: 'app-formulario-peliculas',
   templateUrl: './formulario-peliculas.component.html',
@@ -14,15 +16,20 @@ export class FormularioPeliculasComponent implements OnInit {
 
   ngOnInit() {
   }
-agregarpelicula(NuevaPelicula: HTMLInputElement,Duracion: HTMLInputElement ,Descripcion: HTMLInputElement,Director: HTMLInputElement,Genero: HTMLInputElement){
+  NombrePelicula: string;
+  Duracion: number;
+  NuevaDescripcion: string;
+  NuevoDirector: string;
+  Genero: string;
+agregarpelicula(){
 
-  console.log("Agregando....", NuevaPelicula.value,Duracion.value,Descripcion.value,Director.value,Genero.value)
+  
   this.peliculaService.AgregarPelicula({
-    NombrePelicula: NuevaPelicula.value,
-    DuracionPelicula: Duracion.valueAsNumber,
-    Descripcion: Descripcion.value,
-    Director: Director.value,
-    Genero: Genero.value
+    NombrePelicula: this.NombrePelicula,
+    DuracionPelicula: this.Duracion,
+    Descripcion: this.NuevaDescripcion,
+    Director: this.NuevoDirector,
+    Genero: this.Genero
   })
   
   return false;
