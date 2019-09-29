@@ -24,6 +24,15 @@ export class ListaPeliculasComponent implements OnInit {
     if(confirm('Esta Seguro de que quiere eliminar esta pelicula?'))
     {
       this.peliculaServicio.EliminarPelicula(Pelicula);
+
+    }
+    
+  }
+  EditarPelicula(Pelicula : pelicula)
+  {
+    if(confirm('Esta Seguro de que quiere Editar esta pelicula?'))
+    {
+      this.peliculaServicio.EditarPelicula(Pelicula);
       
     }
     

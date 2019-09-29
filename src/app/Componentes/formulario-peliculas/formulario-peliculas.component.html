@@ -3,22 +3,22 @@
                 <div class="col-md-5 text-center">
                     <div class="texto">
                         <div class="card-body">
-                            <form (submit)= "agregarpelicula(NuevaDuracion,NuevaDescripcion,NuevoDirector,NuevoGenero) ">
+                            <form (submit)= "agregarpelicula() ">
                                 <div class="form-group">
-                                    <input type ="text" class ="form-control" placeholder="Titulo Pelicula" name = "NombrePelicula" :required #NuevaPelicula [(ngModel)] = "NombrePelicula" >
+                                    <input type ="text" class ="form-control" placeholder="Titulo Pelicula" #NuevaPelicula [(ngModel)] = "NombrePelicula" name = "NombrePelicula">
                                 </div>
                                 <div class="form-group">
-                                        <input type ="text" class ="form-control" placeholder="Nombre Director" #NuevoDirector [(ngModel)] = "NombreDirector" name = "NombreDirector" required>
+                                        <input type ="text" class ="form-control" placeholder="Nombre Director" #NuevoDirector [(ngModel)] = "NombreDirector" name = "NombreDirector">
                                 </div>
                                 <div class="form-group">
-                                        <input type ="text" class ="form-control" placeholder="Genero" #NuevoGenero  [(ngModel)] = "Genero" name = "Genero" required>
+                                        <input type ="text" class ="form-control" placeholder="Genero" #NuevoGenero  [(ngModel)] = "Genero" name = "Genero">
                                 </div>
                                 <div class="form-group">
-                                        <input type ="number" class ="form-control" placeholder="Duracion de Pelicula En minutos" #NuevaDuracion [(ngModel)] = "Duracion" name = "Duracion" required>
+                                        <input type ="number" class ="form-control" placeholder="Duracion de Pelicula En minutos" #NuevaDuracion [(ngModel)] = "Duracion" name = "Duracion">
                                 </div>
                                 <div class="form-group">
                                     <textarea cols="30" rows="10" placeholder="Descripcion Pelicula" 
-                                    class ="form-control" #NuevaDescripcion   [(ngModel)] = "Descripcion" name = "Descripcion" required ></textarea>
+                                    class ="form-control" #NuevaDescripcion   [(ngModel)] = "Descripcion" name = "Descripcion"></textarea>
                                 </div>
                                 <button  class="btn btn-primary btn-block " >
                                     Enviar

@@ -27,6 +27,7 @@ ObtenerPeliculas(){
 }
 AgregarPelicula(pelicula: pelicula)
 {
+  
   if(pelicula.DuracionPelicula > 0  && pelicula.DuracionPelicula < 300 )
   {
     this.peliculas.push(pelicula)
@@ -54,14 +55,23 @@ AgregarPelicula(pelicula: pelicula)
 }
 EliminarPelicula(pelicula: pelicula)
 {
+
  for (let i =0; i<this.peliculas.length; i++)
  {
-   if(pelicula == this.peliculas[i])
+   console.log(pelicula);
+   console.log(this.peliculas[i]);
+   if(pelicula.NombrePelicula == this.peliculas[i].NombrePelicula)
    {
+     
      this.peliculas.splice(i,1);
      localStorage.setItem('Pelicula',JSON.stringify(this.peliculas));
    }
  }
-
 }
+
+EditarPelicula(pelicula: pelicula)
+{
+  this.router.navigate(['/actualizar', pelicula.NombrePelicula,pelicula.Director,pelicula.Genero,pelicula.DuracionPelicula,pelicula.Descripcion]);
+}
+
 }

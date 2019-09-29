@@ -18,15 +18,15 @@ export class FormularioPeliculasComponent implements OnInit {
   }
   NombrePelicula: string ;
   Duracion: number;
-  NuevaDescripcion: string;
-  NuevoDirector: string;
+  Descripcion: string;
+  NombreDirector: string;
   Genero: string;
 agregarpelicula(){
   this.peliculaService.AgregarPelicula({
     NombrePelicula: this.NombrePelicula,
     DuracionPelicula: this.Duracion,
-    Descripcion: this.NuevaDescripcion,
-    Director: this.NuevoDirector,
+    Descripcion: this.Descripcion,
+    Director: this.NombreDirector,
     Genero: this.Genero
   })
   
