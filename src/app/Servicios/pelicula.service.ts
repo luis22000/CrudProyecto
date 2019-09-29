@@ -25,7 +25,8 @@ ObtenerPeliculas(){
   }
   
 }
-AgregarPelicula(pelicula: pelicula){
+AgregarPelicula(pelicula: pelicula)
+{
   if(pelicula.DuracionPelicula > 0  && pelicula.DuracionPelicula < 300 )
   {
     this.peliculas.push(pelicula)
@@ -50,5 +51,17 @@ AgregarPelicula(pelicula: pelicula){
     alert('No se puede ingresar una duracion menor a 0 y mayor a 300 minutos');
   }
   
+}
+EliminarPelicula(pelicula: pelicula)
+{
+ for (let i =0; i<this.peliculas.length; i++)
+ {
+   if(pelicula == this.peliculas[i])
+   {
+     this.peliculas.splice(i,1);
+     localStorage.setItem('Pelicula',JSON.stringify(this.peliculas));
+   }
+ }
+
 }
 }

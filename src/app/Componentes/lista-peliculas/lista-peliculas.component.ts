@@ -11,12 +11,23 @@ export class ListaPeliculasComponent implements OnInit {
   Pelicula: pelicula[];
 
   constructor(
-    public pelicualServicio: PeliculaService
+    public peliculaServicio: PeliculaService
   ) { }
 
   ngOnInit() {
-    this.Pelicula = this.pelicualServicio.ObtenerPeliculas();
+    this.Pelicula = this.peliculaServicio.ObtenerPeliculas();
     console.log(this.Pelicula);
   }
+
+  Eliminarpelicula(Pelicula : pelicula)
+  {
+    if(confirm('Esta Seguro de que quiere eliminar esta pelicula?'))
+    {
+      this.peliculaServicio.EliminarPelicula(Pelicula);
+      
+    }
+    
+  }
+
 
 }

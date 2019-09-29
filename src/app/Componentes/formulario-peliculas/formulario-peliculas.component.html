@@ -5,20 +5,20 @@
                         <div class="card-body">
                             <form (submit)= "agregarpelicula(NuevaDuracion,NuevaDescripcion,NuevoDirector,NuevoGenero) ">
                                 <div class="form-group">
-                                    <input type ="text" class ="form-control" placeholder="Titulo Pelicula" #NuevaPelicula [(ngModel)] = "NombrePelicula" name = "NombrePelicula">
+                                    <input type ="text" class ="form-control" placeholder="Titulo Pelicula" name = "NombrePelicula" :required #NuevaPelicula [(ngModel)] = "NombrePelicula" >
                                 </div>
                                 <div class="form-group">
-                                        <input type ="text" class ="form-control" placeholder="Nombre Director" #NuevoDirector [(ngModel)] = "NombreDirector" name = "NombreDirector">
+                                        <input type ="text" class ="form-control" placeholder="Nombre Director" #NuevoDirector [(ngModel)] = "NombreDirector" name = "NombreDirector" required>
                                 </div>
                                 <div class="form-group">
-                                        <input type ="text" class ="form-control" placeholder="Genero" #NuevoGenero  [(ngModel)] = "Genero" name = "Genero">
+                                        <input type ="text" class ="form-control" placeholder="Genero" #NuevoGenero  [(ngModel)] = "Genero" name = "Genero" required>
                                 </div>
                                 <div class="form-group">
-                                        <input type ="number" class ="form-control" placeholder="Duracion de Pelicula En minutos" #NuevaDuracion [(ngModel)] = "Duracion" name = "Duracion">
+                                        <input type ="number" class ="form-control" placeholder="Duracion de Pelicula En minutos" #NuevaDuracion [(ngModel)] = "Duracion" name = "Duracion" required>
                                 </div>
                                 <div class="form-group">
                                     <textarea cols="30" rows="10" placeholder="Descripcion Pelicula" 
-                                    class ="form-control" #NuevaDescripcion   [(ngModel)] = "Descripcion" name = "Descripcion"></textarea>
+                                    class ="form-control" #NuevaDescripcion   [(ngModel)] = "Descripcion" name = "Descripcion" required ></textarea>
                                 </div>
                                 <button  class="btn btn-primary btn-block " >
                                     Enviar

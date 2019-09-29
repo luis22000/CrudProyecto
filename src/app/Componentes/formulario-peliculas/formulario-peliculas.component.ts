@@ -16,14 +16,12 @@ export class FormularioPeliculasComponent implements OnInit {
 
   ngOnInit() {
   }
-  NombrePelicula: string;
+  NombrePelicula: string ;
   Duracion: number;
   NuevaDescripcion: string;
   NuevoDirector: string;
   Genero: string;
 agregarpelicula(){
-
-  
   this.peliculaService.AgregarPelicula({
     NombrePelicula: this.NombrePelicula,
     DuracionPelicula: this.Duracion,
