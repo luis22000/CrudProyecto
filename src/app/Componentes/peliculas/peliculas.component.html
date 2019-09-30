@@ -6,7 +6,7 @@
                         <form  [formGroup]="PeliculasForm" (submit)= "ActualizarPelicula()" >
                             <div class="form-group">
                                 <input type ="text" class ="form-control" placeholder="Titulo Pelicula" #NuevaPelicula [(ngModel)] = "NombrePelicula"
-                                  formControlName="nombre" minlength="3" maxlength="20" [pattern]="nombrePattern">
+                                  formControlName="nombre" minlength="3" maxlength="20" [pattern]="nombrePattern" disabled>
                             </div>
                             <div style="font-size: smaller !"*ngIf="nombre.touched && nombre.hasError('required')">Nombre de pelicula no puede ir vacio</div>
                             <div style="font-size: smaller !"*ngIf="nombre.touched && nombre.hasError('minlength')">Nombre no puede ser menor a 3 caracteres</div>

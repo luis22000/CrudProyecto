@@ -29,7 +29,7 @@ AgregarPelicula(pelicula: pelicula)
 {
   
   
-    this.peliculas.push(pelicula)
+    
     let peliculas =[];
     if(localStorage.getItem('Pelicula')=== null)
     {
@@ -39,11 +39,29 @@ AgregarPelicula(pelicula: pelicula)
       alert('Registro Agregado Exitosamente');
     }
     else{
-      peliculas = JSON.parse(localStorage.getItem('Pelicula'));
-      peliculas.push(pelicula);
-      localStorage.setItem('Pelicula',JSON.stringify(peliculas))
-      this.router.navigate(['/Leer']);
-      alert('Registro Agregado Exitosamente');
+      var Contador = 0;
+      for (let i =0; i<this.peliculas.length; i++)
+      {
+        
+        if(pelicula.NombrePelicula == this.peliculas[i].NombrePelicula)
+        {
+            Contador++;
+        }
+        
+      }
+      if(Contador ===0)
+      {
+        
+        peliculas = JSON.parse(localStorage.getItem('Pelicula'));
+        peliculas.push(pelicula);
+        localStorage.setItem('Pelicula',JSON.stringify(peliculas))
+        this.router.navigate(['/Leer']);
+        alert('Registro Agregado Exitosamente');
+      }
+      else{
+        alert('Nombre de Pelicula ya existe');
+      }
+      
       
     }
   
@@ -55,8 +73,7 @@ EliminarPelicula(pelicula: pelicula)
 
  for (let i =0; i<this.peliculas.length; i++)
  {
-   console.log(pelicula);
-   console.log(this.peliculas[i]);
+   
    if(pelicula.NombrePelicula == this.peliculas[i].NombrePelicula)
    {
      
