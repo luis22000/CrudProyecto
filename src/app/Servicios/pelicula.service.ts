@@ -28,8 +28,7 @@ ObtenerPeliculas(){
 AgregarPelicula(pelicula: pelicula)
 {
   
-  if(pelicula.DuracionPelicula > 0  && pelicula.DuracionPelicula < 300 )
-  {
+  
     this.peliculas.push(pelicula)
     let peliculas =[];
     if(localStorage.getItem('Pelicula')=== null)
@@ -47,10 +46,8 @@ AgregarPelicula(pelicula: pelicula)
       alert('Registro Agregado Exitosamente');
       
     }
-  }
-  else{
-    alert('No se puede ingresar una duracion menor a 0 y mayor a 300 minutos');
-  }
+  
+  
   
 }
 EliminarPelicula(pelicula: pelicula)

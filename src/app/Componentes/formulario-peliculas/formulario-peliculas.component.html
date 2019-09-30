@@ -3,23 +3,48 @@
                 <div class="col-md-5 text-center">
                     <div class="texto">
                         <div class="card-body">
-                            <form (submit)= "agregarpelicula() ">
+                            <form  [formGroup]="PeliculasForm" (submit)= "agregarpelicula()" >
                                 <div class="form-group">
-                                    <input type ="text" class ="form-control" placeholder="Titulo Pelicula" #NuevaPelicula [(ngModel)] = "NombrePelicula" name = "NombrePelicula">
+                                    <input type ="text" class ="form-control" placeholder="Titulo Pelicula" #NuevaPelicula [(ngModel)] = "NombrePelicula"
+                                      formControlName="nombre" minlength="3" maxlength="20" [pattern]="nombrePattern">
                                 </div>
+                                <div style="font-size: smaller !"*ngIf="nombre.touched && nombre.hasError('required')">Nombre de pelicula no puede ir vacio</div>
+                                <div style="font-size: smaller !"*ngIf="nombre.touched && nombre.hasError('minlength')">Nombre no puede ser menor a 3 caracteres</div>
+                                <div style="font-size: smaller !"*ngIf="nombre.touched && nombre.hasError('maxlength')">Nombre no puede ser mayor a 30 caracteres</div>
+                                <div style="font-size: smaller !"*ngIf="nombre.errors?.pattern"> No se pueden ingresar caracteres especiales </div>
                                 <div class="form-group">
-                                        <input type ="text" class ="form-control" placeholder="Nombre Director" #NuevoDirector [(ngModel)] = "NombreDirector" name = "NombreDirector">
+                                        <input type ="text" class ="form-control" placeholder="Nombre Director" #NuevoDirector [(ngModel)] = "NombreDirector"
+                                         formControlName = "NombreDirectors" minlength="3" maxlength="20" [pattern]="nombrePattern" >
                                 </div>
+                                <div style="font-size: smaller !"*ngIf="NombreDirectors.touched && NombreDirectors.hasError('required')">Director de pelicula no puede ir vacio</div>
+                                <div style="font-size: smaller !"*ngIf="NombreDirectors.touched && NombreDirectors.hasError('minlength')">Director no puede ser menor a 3 caracteres</div>
+                                <div style="font-size: smaller !"*ngIf="NombreDirectors.touched && NombreDirectors.hasError('maxlength')">Director no puede ser mayor a 20 caracteres</div>
+                                <div style="font-size: smaller !"*ngIf="NombreDirectors.errors?.pattern"> No se pueden ingresar caracteres especiales </div>
                                 <div class="form-group">
-                                        <input type ="text" class ="form-control" placeholder="Genero" #NuevoGenero  [(ngModel)] = "Genero" name = "Genero">
+                                        <input type ="text" class ="form-control" placeholder="Genero" #NuevoGenero  [(ngModel)] = "Genero" 
+                                        formControlName = "Generos" minlength="5" maxlength="12" [pattern]="GeneroPattern" >
                                 </div>
+                                <div style="font-size: smaller !"*ngIf="Generos.touched && Generos.hasError('required')">Genero de pelicula no puede ir vacio</div>
+                                <div style="font-size: smaller !"*ngIf="Generos.touched && Generos.hasError('minlength')">Genero no puede ser menor a 5 caracteres</div>
+                                <div style="font-size: smaller !"*ngIf="Generos.touched && Generos.hasError('maxlength')">Director no puede ser mayor a 12 caracteres</div>
+                                <div style="font-size: smaller !"*ngIf="Generos.errors?.pattern"> No se pueden ingresar caracteres especiales </div>
                                 <div class="form-group">
-                                        <input type ="number" class ="form-control" placeholder="Duracion de Pelicula En minutos" #NuevaDuracion [(ngModel)] = "Duracion" name = "Duracion">
+                                        <input type ="number" class ="form-control" placeholder="Duracion de Pelicula En minutos" #NuevaDuracion [(ngModel)] = "Duracion"
+                                         formControlName = "VDuracion" min="30"max="300"  [pattern]="DuracionPattern">
                                 </div>
+                                <div style="font-size: smaller !"*ngIf="VDuracion.touched && VDuracion.hasError('required')">Duracion de pelicula no puede ir vacia</div>
+                                <div style="font-size: smaller !"*ngIf="VDuracion.touched && VDuracion.hasError('min')">Duracion no puede ser menor a 30</div>
+                                <div style="font-size: smaller !"*ngIf="VDuracion.touched && VDuracion.hasError('max')">Duracion no puede ser mayor a 300</div>
+                                <div style="font-size: smaller !"*ngIf="VDuracion.errors?.pattern"> Solo se pueden ingresar numeros </div>
                                 <div class="form-group">
                                     <textarea cols="30" rows="10" placeholder="Descripcion Pelicula" 
-                                    class ="form-control" #NuevaDescripcion   [(ngModel)] = "Descripcion" name = "Descripcion"></textarea>
+                                    class ="form-control" #NuevaDescripcion   [(ngModel)] = "Descripcion"  
+                                    formControlName = "VDescripcion" minlength="5" maxlength="300" [pattern]="DescripcionPattern"  ></textarea>
                                 </div>
+                                <div style="font-size: smaller !"*ngIf="VDescripcion.touched && VDescripcion.hasError('required')">Descripcion de pelicula no puede ir vacio</div>
+                                <div style="font-size: smaller !"*ngIf="VDescripcion.touched && VDescripcion.hasError('minlength')">Descripcion no puede ser menor a 5 caracteres</div>
+                                <div style="font-size: smaller !"*ngIf="VDescripcion.touched && VDescripcion.hasError('maxlength')">Descripcion no puede ser mayor a 300 caracteres</div>
+                                <div style="font-size: smaller !"*ngIf="VDescripcion.errors?.pattern"> No se pueden ingresar caracteres especiales </div>
                                 <button  class="btn btn-primary btn-block " >
                                     Enviar
                                 </button>
