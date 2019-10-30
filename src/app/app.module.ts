@@ -10,6 +10,7 @@ import { PeliculasComponent } from './Componentes/peliculas/peliculas.component'
 import { ListaPeliculasComponent } from './Componentes/lista-peliculas/lista-peliculas.component';
 import { PeliculaService } from './Servicios/pelicula.service'
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 const appRoutes: Routes = [
   { path: 'Leer', component: ListaPeliculasComponent },
   { path: 'Ingresar', component: FormularioPeliculasComponent },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule

@@ -1,69 +1,46 @@
 import { Injectable } from '@angular/core';
 import { pelicula } from '../Modelos/pelicula'
 import { Router } from '@angular/router'; 
-
+import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import { JsonPipe } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
 
 export class PeliculaService {
   peliculas: pelicula[];
-  constructor(private router:Router) { 
+  constructor(private router:Router,private http: HttpClient) { 
     this.peliculas = [
       //{NombrePelicula: 'Avengers' , DuracionPelicula: 5, Descripcion: 'La mejor pelicula del año'}
     ];
   }
   
-ObtenerPeliculas(){
-  if(localStorage.getItem('Pelicula')=== null)
-  {
-    return this.peliculas;
-  }
-  else{
-    this.peliculas = JSON.parse(localStorage.getItem('Pelicula'));
-    return this.peliculas;
-  }
+ObtenerPeliculas(): Observable<any>{
+  return this.http.get('http://localhost:3001/api/v1/pelicula/');
   
 }
 AgregarPelicula(pelicula: pelicula)
 {
   
   
+  
+  this.http.post('http://localhost:3001/api/v1/pelicula/',{
+    NombrePelicula: pelicula.NombrePelicula,
+    NombreDirector: pelicula.NombreDirector,
+    Genero: pelicula.Genero,
+    Duracion: pelicula.Duracion,
+    Descripcion: pelicula.Descripcion,
+
+  }).subscribe(data => {
+    console.log(data);
+    this.router.navigate(['/Leer']);
+    alert('Registro Agregado Exitosamente');
+  });
+        
+       
+
     
-    let peliculas =[];
-    if(localStorage.getItem('Pelicula')=== null)
-    {
-      peliculas.push(pelicula);
-      localStorage.setItem('Pelicula',JSON.stringify(peliculas));
-      this.router.navigate(['/Leer']);
-      alert('Registro Agregado Exitosamente');
-    }
-    else{
-      var Contador = 0;
-      for (let i =0; i<this.peliculas.length; i++)
-      {
-        
-        if(pelicula.NombrePelicula == this.peliculas[i].NombrePelicula)
-        {
-            Contador++;
-        }
-        
-      }
-      if(Contador ===0)
-      {
-        
-        peliculas = JSON.parse(localStorage.getItem('Pelicula'));
-        peliculas.push(pelicula);
-        localStorage.setItem('Pelicula',JSON.stringify(peliculas))
-        this.router.navigate(['/Leer']);
-        alert('Registro Agregado Exitosamente');
-      }
-      else{
-        alert('Nombre de Pelicula ya existe');
-      }
-      
-      
-    }
   
   
   
@@ -85,7 +62,7 @@ EliminarPelicula(pelicula: pelicula)
 
 EditarPelicula(pelicula: pelicula)
 {
-  this.router.navigate(['/actualizar', pelicula.NombrePelicula,pelicula.Director,pelicula.Genero,pelicula.DuracionPelicula,pelicula.Descripcion]);
+  this.router.navigate(['/actualizar', pelicula.NombrePelicula,pelicula.NombreDirector,pelicula.Genero,pelicula.Duracion,pelicula.Descripcion]);
 }
 
 }

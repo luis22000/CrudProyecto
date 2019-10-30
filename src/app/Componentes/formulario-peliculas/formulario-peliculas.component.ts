@@ -37,9 +37,9 @@ agregarpelicula(){
   {
     this.peliculaService.AgregarPelicula({
     NombrePelicula: this.NombrePelicula,
-    DuracionPelicula: this.Duracion,
+    Duracion: this.Duracion,
     Descripcion: this.Descripcion,
-    Director: this.NombreDirector,
+    NombreDirector: this.NombreDirector,
     Genero: this.Genero
   })
   }

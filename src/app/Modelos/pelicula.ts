@@ -1,8 +1,9 @@
  export interface pelicula{
    NombrePelicula: string;
-   DuracionPelicula:number;
-   Descripcion:string;
-   Director:string;
+   NombreDirector:string;
    Genero:string;
+   Duracion:number;
+   Descripcion:string;
+   
 
 }

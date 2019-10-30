@@ -15,7 +15,12 @@ export class ListaPeliculasComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.Pelicula = this.peliculaServicio.ObtenerPeliculas();
+    this.peliculaServicio.ObtenerPeliculas().subscribe(
+    data => {
+      this.Pelicula= data;
+      console.log(data);
+    }
+  );
     console.log(this.Pelicula);
   }
 

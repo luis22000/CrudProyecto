@@ -17,9 +17,9 @@
                             </thead>
                             <tr  *ngFor ="let pelicula of Pelicula"> 
                                 <td>{{pelicula.NombrePelicula}}</td>
-                                <td>{{pelicula.DuracionPelicula}} </td>
+                                <td>{{pelicula.Duracion}} </td>
                                 <td>{{pelicula.Descripcion}}</td>
-                                <td>{{pelicula.Director}}</td>
+                                <td>{{pelicula.NombreDirector}}</td>
                                 <td>{{pelicula.Genero}}</td>
                                 <td><div>
                                     <button class ="btn btn-danger" (click) = "Eliminarpelicula(pelicula)">
