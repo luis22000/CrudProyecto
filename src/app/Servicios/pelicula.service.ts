@@ -23,19 +23,24 @@ ObtenerPeliculas(): Observable<any>{
 AgregarPelicula(pelicula: pelicula)
 {
   
-  
-  
   this.http.post('http://localhost:3001/api/v1/pelicula/',{
     NombrePelicula: pelicula.NombrePelicula,
     NombreDirector: pelicula.NombreDirector,
     Genero: pelicula.Genero,
     Duracion: pelicula.Duracion,
     Descripcion: pelicula.Descripcion,
-
-  }).subscribe(data => {
+  },{observe: 'response'}).subscribe(data => {
     console.log(data);
-    this.router.navigate(['/Leer']);
-    alert('Registro Agregado Exitosamente');
+    console.log(data.status);
+    if(data.status === 200)
+    {
+        this.router.navigate(['/Leer']);
+        alert('Registro Agregado Exitosamente');
+    }
+    else {
+
+      alert('No se pudo agregar pelicula debido a que ya existe o hay datos invalidos');
+    }
   });
         
        
