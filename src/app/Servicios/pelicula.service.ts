@@ -34,8 +34,9 @@ AgregarPelicula(pelicula: pelicula)
     console.log(data.status);
     if(data.status === 200)
     {
-        this.router.navigate(['/Leer']);
+        
         alert('Registro Agregado Exitosamente');
+        this.router.navigate(['/Leer']);
     }
     else {
 
@@ -53,16 +54,20 @@ AgregarPelicula(pelicula: pelicula)
 EliminarPelicula(pelicula: pelicula)
 {
 
- for (let i =0; i<this.peliculas.length; i++)
- {
-   
-   if(pelicula.NombrePelicula == this.peliculas[i].NombrePelicula)
-   {
-     
-     this.peliculas.splice(i,1);
-     localStorage.setItem('Pelicula',JSON.stringify(this.peliculas));
-   }
- }
+  this.http.delete('http://localhost:3001/api/v1/pelicula/'+pelicula.NombrePelicula,{observe: 'response'}).subscribe(data => {
+    console.log(data);
+    console.log(data.status);
+    if(data.status === 204)
+    {
+        
+        alert('Registro Registro Eliminado Exitosamente');
+        this.router.navigate(['/Leer']);
+    }
+    else {
+
+      alert('No se pudo eliminar pelicula');
+    }
+  });
 }
 
 EditarPelicula(pelicula: pelicula)
