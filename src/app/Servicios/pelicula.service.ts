@@ -69,6 +69,22 @@ EliminarPelicula(pelicula: pelicula)
     }
   });
 }
+EditarPelicula2(pelicula: pelicula)
+{
+
+  this.http.put('http://localhost:3001/api/v1/pelicula/'+pelicula.NombrePelicula,{
+    NombrePelicula: pelicula.NombrePelicula,
+    NombreDirector: pelicula.NombreDirector,
+    Genero: pelicula.Genero,
+    Duracion: pelicula.Duracion,
+    Descripcion: pelicula.Descripcion,
+  },{observe: 'response'}).subscribe(data => {
+    
+  });
+  this.router.navigate(['/Leer']);
+}
+
+
 
 EditarPelicula(pelicula: pelicula)
 {

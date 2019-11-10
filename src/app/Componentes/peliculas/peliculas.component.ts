@@ -51,14 +51,8 @@ export class PeliculasComponent implements OnInit {
     var Genero =  this._route.snapshot.paramMap.get("Genero");
     var Duracion =  Number(this._route.snapshot.paramMap.get("Duracion"));
     var Descripcion =  this._route.snapshot.paramMap.get("Descripcion");
-    this.peliculaService.EliminarPelicula({NombrePelicula,Duracion,Descripcion,NombreDirector,Genero});
-    this.peliculaService.AgregarPelicula({
-      NombrePelicula: this.NombrePelicula,
-      Duracion: this.Duracion,
-      Descripcion: this.Descripcion,
-      NombreDirector: this.NombreDirector,
-      Genero: this.Genero
-    })
+    this.peliculaService.EditarPelicula2({NombrePelicula,Duracion,Descripcion,NombreDirector,Genero});
+    
   }
   else
   { 
