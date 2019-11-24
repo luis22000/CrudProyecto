@@ -47,10 +47,10 @@ export class PeliculasComponent implements OnInit {
     if(this.PeliculasForm.valid)
   {
     var NombrePelicula = this._route.snapshot.paramMap.get("Nombre");
-    var NombreDirector =  this._route.snapshot.paramMap.get("Director");
-    var Genero =  this._route.snapshot.paramMap.get("Genero");
-    var Duracion =  Number(this._route.snapshot.paramMap.get("Duracion"));
-    var Descripcion =  this._route.snapshot.paramMap.get("Descripcion");
+    var NombreDirector =  this.NombreDirector;
+    var Genero =  this.Genero;
+    var Duracion =  this.Duracion;
+    var Descripcion =  this.Descripcion
     this.peliculaService.EditarPelicula2({NombrePelicula,Duracion,Descripcion,NombreDirector,Genero});
     
   }

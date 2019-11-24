@@ -55,8 +55,7 @@ EliminarPelicula(pelicula: pelicula)
 {
 
   this.http.delete('http://localhost:3001/api/v1/pelicula/'+pelicula.NombrePelicula,{observe: 'response'}).subscribe(data => {
-    console.log(data);
-    console.log(data.status);
+    
     if(data.status === 204)
     {
         
@@ -71,7 +70,7 @@ EliminarPelicula(pelicula: pelicula)
 }
 EditarPelicula2(pelicula: pelicula)
 {
-
+  console.log(pelicula);
   this.http.put('http://localhost:3001/api/v1/pelicula/'+pelicula.NombrePelicula,{
     NombrePelicula: pelicula.NombrePelicula,
     NombreDirector: pelicula.NombreDirector,
@@ -79,9 +78,18 @@ EditarPelicula2(pelicula: pelicula)
     Duracion: pelicula.Duracion,
     Descripcion: pelicula.Descripcion,
   },{observe: 'response'}).subscribe(data => {
-    
-  });
-  this.router.navigate(['/Leer']);
+    if(data.status === 204)
+    {
+        
+        alert('Registro Editado  Exitosamente');
+        this.router.navigate(['/Leer']);
+    }
+    else {
+
+      alert('No se pudo editar pelicula');
+    }
+  });1
+  
 }
 
 
