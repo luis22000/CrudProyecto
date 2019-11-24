@@ -4,26 +4,31 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { JsonPipe } from '@angular/common';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 
 export class PeliculaService {
+  Url: string;
   peliculas: pelicula[];
   constructor(private router:Router,private http: HttpClient) { 
-    this.peliculas = [
-      //{NombrePelicula: 'Avengers' , DuracionPelicula: 5, Descripcion: 'La mejor pelicula del año'}
-    ];
+    console.log(environment.apiUrl);
+    
+      this.Url = environment.apiUrl;
+    
+      
   }
   
 ObtenerPeliculas(): Observable<any>{
-  return this.http.get('http://localhost:3001/api/v1/pelicula/');
+  console.log(this.Url);
+  return this.http.get(this.Url);
   
 }
 AgregarPelicula(pelicula: pelicula)
 {
   
-  this.http.post('http://localhost:3001/api/v1/pelicula/',{
+  this.http.post(this.Url,{
     NombrePelicula: pelicula.NombrePelicula,
     NombreDirector: pelicula.NombreDirector,
     Genero: pelicula.Genero,
@@ -54,7 +59,7 @@ AgregarPelicula(pelicula: pelicula)
 EliminarPelicula(pelicula: pelicula)
 {
 
-  this.http.delete('http://localhost:3001/api/v1/pelicula/'+pelicula.NombrePelicula,{observe: 'response'}).subscribe(data => {
+  this.http.delete(this.Url+pelicula.NombrePelicula,{observe: 'response'}).subscribe(data => {
     
     if(data.status === 204)
     {
@@ -71,7 +76,7 @@ EliminarPelicula(pelicula: pelicula)
 EditarPelicula2(pelicula: pelicula)
 {
   console.log(pelicula);
-  this.http.put('http://localhost:3001/api/v1/pelicula/'+pelicula.NombrePelicula,{
+  this.http.put(this.Url+pelicula.NombrePelicula,{
     NombrePelicula: pelicula.NombrePelicula,
     NombreDirector: pelicula.NombreDirector,
     Genero: pelicula.Genero,
