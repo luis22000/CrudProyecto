@@ -50,7 +50,7 @@ export class PeliculasComponent implements OnInit {
     var NombreDirector =  this.NombreDirector;
     var Genero =  this.Genero;
     var Duracion =  this.Duracion;
-    var Descripcion =  this.Descripcion
+    var Descripcion =  this.Descripcion;
     this.peliculaService.EditarPelicula2({NombrePelicula,Duracion,Descripcion,NombreDirector,Genero});
     
   }

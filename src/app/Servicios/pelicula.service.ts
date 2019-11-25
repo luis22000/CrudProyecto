@@ -13,7 +13,7 @@ export class PeliculaService {
   Url: string;
   peliculas: pelicula[];
   constructor(private router:Router,private http: HttpClient) { 
-    console.log(environment.apiUrl);
+    
     
       this.Url = environment.apiUrl;
     
@@ -21,7 +21,7 @@ export class PeliculaService {
   }
   
 ObtenerPeliculas(): Observable<any>{
-  console.log(this.Url);
+  
   return this.http.get(this.Url);
   
 }
